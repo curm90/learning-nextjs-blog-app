@@ -22,11 +22,10 @@ export default async function handler(req, res) {
 
     let client;
 
+    const connectionString = `mongodb+srv://${process.env.mongodbUsername}:${process.env.mongodbPassword}@${process.env.mongodbClusterName}.aokdwtf.mongodb.net/${process.env.mongodbKey}?retryWrites=true&w=majority`;
+
     try {
-      client = await MongoClient.connect(
-        "mongodb+srv://devliam90:TakW2tlAExkG7chp@cluster0.aokdwtf.mongodb.net/nextjs-blog-udemy?retryWrites=true&w=majority"
-      );
-      console.log({ client });
+      client = await MongoClient.connect(connectionString);
     } catch (error) {
       return res.status(500).json({ message: "Could not connect to database" });
     }
