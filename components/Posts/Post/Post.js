@@ -3,7 +3,6 @@ import Link from "next/link";
 import classes from "./Post.module.css";
 
 export default function Post({ post }) {
-  console.log({ post });
   const { title, image, excerpt, date, slug } = post;
 
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
